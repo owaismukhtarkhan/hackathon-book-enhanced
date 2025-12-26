@@ -46,6 +46,17 @@ class GeminiIntegration {
    * Generate content using Google Gemini API
    */
   public async generateContent(request: GeminiRequest): Promise<GeminiResponse> {
+    // Check if we're in a browser environment (not during server-side rendering)
+    if (typeof window === 'undefined') {
+      // During server-side rendering, return a placeholder response
+      // This prevents build errors while still allowing the component to render
+      return {
+        success: false,
+        content: '',
+        error: 'Gemini API not available during server-side rendering'
+      };
+    }
+
     if (!this.config.apiKey) {
       return {
         success: false,
