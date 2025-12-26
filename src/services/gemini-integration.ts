@@ -192,19 +192,237 @@ class GeminiIntegration {
   }
 }
 
-// Lazy initialization of the singleton instance
+// Lazy initialization of the singleton instance - avoid initializing during server-side rendering
 let geminiIntegration: GeminiIntegration | null = null;
 
 // Function to get or create the singleton instance
 function getGeminiIntegration(): GeminiIntegration {
-  if (!geminiIntegration) {
+  // Only initialize in browser environments, not during server-side rendering
+  if (typeof window !== 'undefined' && !geminiIntegration) {
+    // Only access process.env when the function is actually called in browser, not at module load time
     const config: GeminiConfig = {
-      apiKey: process.env.GOOGLE_API_KEY || '' // In a real implementation, this would come from secure storage
+      apiKey: typeof process !== 'undefined' && process.env ? process.env.GOOGLE_API_KEY || '' : ''
     };
     geminiIntegration = new GeminiIntegration(config);
   }
+
+  // If we're in SSR or the instance wasn't created, return a no-op instance
+  if (!geminiIntegration) {
+    geminiIntegration = new GeminiIntegration({ apiKey: '' });
+  }
+
   return geminiIntegration;
 }
 
-export { GeminiIntegration, GeminiConfig, GeminiRequest, GeminiResponse, getGeminiIntegration };
+// Import the VLA interfaces
+interface VLARequest {
+  image?: Buffer;      // Image data for vision tasks
+  text: string;        // Natural language command
+  context?: Record<string, any>; // Additional context (robot state, environment, etc.)
+}
+
+interface VLEResponse {
+  action_sequence: string[];
+  confidence_score: number;
+  reasoning: string;
+  parameters?: Record<string, any>;
+  scene_understanding?: string;
+  target_object?: string;
+}
+
+// Extended GeminiIntegrationService class for VLA (Vision-Language-Action) pipeline
+class GeminiIntegrationService {
+  private geminiIntegration: GeminiIntegration;
+
+  constructor(config: GeminiConfig) {
+    this.geminiIntegration = new GeminiIntegration(config);
+  }
+
+  /**
+   * Process a Vision-Language-Action request using Google Gemini
+   */
+  async processVLARequest(request: VLARequest): Promise<VLEResponse> {
+    // Check if we're in a browser environment (not during server-side rendering)
+    if (typeof window === 'undefined') {
+      // During server-side rendering, return a placeholder response
+      // This prevents build errors while still allowing the component to render
+      return {
+        action_sequence: [],
+        confidence_score: 0,
+        reasoning: 'VLA processing not available during server-side rendering',
+        parameters: {},
+        scene_understanding: 'Not available during build',
+        target_object: null
+      };
+    }
+
+    try {
+      let prompt: string;
+
+      if (request.image) {
+        // For now, we'll handle image requests by describing the approach
+        // In a real implementation, we would need to convert the image to base64
+        // and use the Gemini Pro Vision model
+        prompt = this.buildVLAPrompt(request);
+      } else {
+        prompt = this.buildTextPrompt(request);
+      }
+
+      const response = await this.geminiIntegration.generateContent({
+        prompt: prompt,
+        maxOutputTokens: 1024,
+        temperature: 0.3
+      });
+
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to generate content');
+      }
+
+      return this.parseVLAResponse(response.content);
+    } catch (error) {
+      console.error('Error processing VLA request:', error);
+      return {
+        action_sequence: ['error'],
+        confidence_score: 0,
+        reasoning: `Error processing request: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        parameters: {},
+      };
+    }
+  }
+
+  /**
+   * Build a prompt for vision-language processing
+   */
+  private buildVLAPrompt(request: VLARequest): string {
+    const context = request.context ? JSON.stringify(request.context) : "No additional context provided";
+
+    return `
+You are an advanced robot assistant with vision and language capabilities.
+Analyze the provided image and interpret the user's command.
+
+User Command: "${request.text}"
+
+Additional Context: ${context}
+
+Provide a detailed JSON response with the following structure:
+{
+  "action_sequence": ["list", "of", "actions", "to", "execute"],
+  "confidence_score": 0.85,
+  "reasoning": "Brief explanation of your interpretation",
+  "parameters": {
+    "object_name": "name of target object if relevant",
+    "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+    "orientation": {"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0}
+  },
+  "scene_understanding": "Description of what you see in the image",
+  "target_object": "Name of the specific object related to the command"
+}
+
+Respond only with valid JSON, no additional text.
+    `;
+  }
+
+  /**
+   * Build a prompt for text-only processing
+   */
+  private buildTextPrompt(request: VLARequest): string {
+    const context = request.context ? JSON.stringify(request.context) : "No additional context provided";
+
+    return `
+You are an advanced robot command interpreter.
+Interpret the user's command in the context of robotics.
+
+User Command: "${request.text}"
+
+Additional Context: ${context}
+
+Provide a detailed JSON response with the following structure:
+{
+  "action_sequence": ["list", "of", "actions", "to", "execute"],
+  "confidence_score": 0.85,
+  "reasoning": "Brief explanation of your interpretation",
+  "parameters": {
+    "object_name": "name of target object if relevant",
+    "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+    "orientation": {"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0}
+  }
+}
+
+Respond only with valid JSON, no additional text.
+    `;
+  }
+
+  /**
+   * Parse the Gemini response into structured VLA data
+   */
+  private parseVLAResponse(responseText: string): VLEResponse {
+    try {
+      // Clean the response text
+      let cleanText = responseText.trim();
+      if (cleanText.startsWith('```json')) {
+        cleanText = cleanText.substring(7); // Remove ```json
+      }
+      if (cleanText.endsWith('```')) {
+        cleanText = cleanText.substring(0, cleanText.length - 3); // Remove ```
+      }
+      cleanText = cleanText.trim();
+
+      // Parse JSON
+      const parsed = JSON.parse(cleanText);
+
+      return {
+        action_sequence: parsed.action_sequence || [],
+        confidence_score: parsed.confidence_score || 0,
+        reasoning: parsed.reasoning || 'No reasoning provided',
+        parameters: parsed.parameters || {},
+        scene_understanding: parsed.scene_understanding,
+        target_object: parsed.target_object
+      };
+    } catch (e) {
+      console.error('Error parsing Gemini response:', e);
+      // Return a default response in case of parsing failure
+      return {
+        action_sequence: ['error_parsing_response'],
+        confidence_score: 0,
+        reasoning: `Failed to parse Gemini response: ${responseText.substring(0, 200)}...`,
+        parameters: {}
+      };
+    }
+  }
+
+  /**
+   * Validate the Gemini API configuration
+   */
+  async validateConfig(): Promise<boolean> {
+    try {
+      // Try a simple test request to validate the API
+      const response = await this.geminiIntegration.generateContent({
+        prompt: "Hello, are you working?",
+        temperature: 0.1
+      });
+      return response.success && response.content.length > 0;
+    } catch (e) {
+      console.error('Gemini API validation failed:', e);
+      return false;
+    }
+  }
+
+  /**
+   * Process a natural language command to robot action sequence
+   */
+  async processNaturalLanguageCommand(command: string, context?: Record<string, any>): Promise<VLEResponse> {
+    const request: VLARequest = { text: command, context };
+    return this.processVLARequest(request);
+  }
+
+  /**
+   * Process visual scene understanding with language
+   */
+  async processVisualLanguageCommand(image: Buffer, command: string, context?: Record<string, any>): Promise<VLEResponse> {
+    const request: VLARequest = { image, text: command, context };
+    return this.processVLARequest(request);
+  }
+}
+
+export { GeminiIntegration, GeminiConfig, GeminiRequest, GeminiResponse, getGeminiIntegration, GeminiIntegrationService, VLARequest, VLEResponse };
 export default getGeminiIntegration;
