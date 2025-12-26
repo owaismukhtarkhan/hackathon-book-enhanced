@@ -1,0 +1,401 @@
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Book Content API
+  description: API for accessing educational content, assessments, and learning materials for the Physical AI & Humanoid Robotics curriculum
+  version: 1.0.0
+  contact:
+    name: Educational Content Team
+    email: education@physical-ai-book.org
+
+servers:
+  - url: https://physical-ai-book.github.io/api/v1
+    description: Production API server for the Physical AI & Humanoid Robotics Book
+
+paths:
+  /modules:
+    get:
+      summary: Get all available modules
+      description: Retrieve a list of all curriculum modules organized by weeks
+      responses:
+        '200':
+          description: List of all modules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Module'
+      tags:
+        - Curriculum
+
+  /modules/{moduleId}:
+    get:
+      summary: Get module details
+      description: Retrieve detailed information about a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the module
+      responses:
+        '200':
+          description: Module details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Module not found
+      tags:
+        - Curriculum
+
+  /modules/{moduleId}/content:
+    get:
+      summary: Get module content
+      description: Retrieve the content sections for a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the module
+      responses:
+        '200':
+          description: Module content sections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContentSection'
+        '404':
+          description: Module not found
+      tags:
+        - Curriculum
+
+  /modules/{moduleId}/code-examples:
+    get:
+      summary: Get code examples for a module
+      description: Retrieve all code examples for a specific module
+      parameters:
+        - name: moduleId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the module
+      responses:
+        '200':
+          description: List of code examples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CodeExample'
+        '404':
+          description: Module not found
+      tags:
+        - Code Examples
+
+  /assessments/{assessmentId}/submit:
+    post:
+      summary: Submit assessment for validation
+      description: Submit an assessment response for automated validation
+      parameters:
+        - name: assessmentId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier for the assessment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssessmentSubmission'
+      responses:
+        '200':
+          description: Assessment submitted and validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssessmentResult'
+        '400':
+          description: Invalid submission format
+        '404':
+          description: Assessment not found
+      tags:
+        - Assessments
+
+  /capstone/project:
+    get:
+      summary: Get capstone project details
+      description: Retrieve details about the capstone project "The Autonomous Humanoid"
+      responses:
+        '200':
+          description: Capstone project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapstoneProject'
+      tags:
+        - Capstone
+
+components:
+  schemas:
+    Module:
+      type: object
+      required:
+        - id
+        - name
+        - description
+        - weekRange
+        - prerequisites
+        - learningObjectives
+        - status
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the module
+          example: "week-03-05-ros2"
+        name:
+          type: string
+          description: Name of the module
+          example: "ROS 2 Fundamentals"
+        description:
+          type: string
+          description: Brief description of the module
+          example: "Learn the fundamentals of Robot Operating System 2"
+        weekRange:
+          type: string
+          description: The weeks this module covers
+          example: "Weeks 3-5"
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: List of prerequisite modules that must be completed first
+          example: ["week-01-02-fundamentals"]
+        learningObjectives:
+          type: array
+          items:
+            type: string
+          description: List of learning objectives for the module
+          example: ["Understand ROS 2 architecture", "Create ROS 2 packages with Python"]
+        contentSections:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContentSection'
+        codeExamples:
+          type: array
+          items:
+            $ref: '#/components/schemas/CodeExample'
+        assessments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assessment'
+        status:
+          type: string
+          enum: [planned, in-progress, completed]
+          description: Current status of the module
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Progress percentage for the student
+
+    ContentSection:
+      type: object
+      required:
+        - id
+        - title
+        - content
+        - duration
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the content section
+        title:
+          type: string
+          description: Title of the content section
+        content:
+          type: string
+          description: The main content in Markdown format
+        learningOutcomes:
+          type: array
+          items:
+            type: string
+          description: List of specific learning outcomes
+        duration:
+          type: number
+          description: Estimated time to complete in minutes
+        dependencies:
+          type: array
+          items:
+            type: string
+          description: List of dependencies on other sections
+
+    CodeExample:
+      type: object
+      required:
+        - id
+        - title
+        - language
+        - code
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the code example
+        title:
+          type: string
+          description: Title of the code example
+        language:
+          type: string
+          description: Programming language (TypeScript required by constitution)
+          enum: [typescript, python, shell]
+        code:
+          type: string
+          description: The actual code content
+        explanation:
+          type: string
+          description: Explanation of the code functionality
+        expectedOutput:
+          type: string
+          description: What the code should produce
+        moduleRef:
+          type: string
+          description: Reference to the parent module
+
+    Assessment:
+      type: object
+      required:
+        - id
+        - title
+        - type
+        - requirements
+        - successThreshold
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the assessment
+        title:
+          type: string
+          description: Title of the assessment
+        type:
+          type: string
+          enum: [quiz, coding, project]
+          description: Type of assessment
+        requirements:
+          type: array
+          items:
+            type: string
+          description: List of requirements to pass the assessment
+        successThreshold:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Minimum score required to pass (from spec: 90%, 85%, 80%, 95%)
+        validationMethod:
+          type: string
+          description: How the assessment will be validated
+          enum: [automated-code-review, execution-tests, quiz-automated]
+
+    AssessmentSubmission:
+      type: object
+      required:
+        - studentId
+        - submissionContent
+        - timestamp
+      properties:
+        studentId:
+          type: string
+          description: Unique identifier for the student
+        submissionContent:
+          type: object
+          description: The content of the assessment submission
+          additionalProperties: true
+        timestamp:
+          type: string
+          format: date-time
+          description: When the submission was made
+
+    AssessmentResult:
+      type: object
+      required:
+        - submissionId
+        - score
+        - passed
+        - feedback
+        - timestamp
+      properties:
+        submissionId:
+          type: string
+          description: Unique identifier for the submission
+        score:
+          type: number
+          minimum: 0
+          maximum: 100
+          description: Score achieved on the assessment
+        passed:
+          type: boolean
+          description: Whether the assessment was passed
+        feedback:
+          type: string
+          description: Feedback from the automated validation
+        timestamp:
+          type: string
+          format: date-time
+          description: When the assessment was evaluated
+        validationDetails:
+          type: object
+          description: Detailed validation results
+
+    CapstoneProject:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - requirements
+        - prerequisites
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the capstone project
+          example: "autonomous-humanoid"
+        title:
+          type: string
+          description: Title of the capstone project
+          example: "The Autonomous Humanoid"
+        description:
+          type: string
+          description: Detailed description of the project
+        requirements:
+          type: array
+          items:
+            type: string
+          description: All 6 specific requirements that must be fulfilled
+          example:
+            - "Receive a voice command"
+            - "Interpret intent via language model"
+            - "Plan a sequence of actions"
+            - "Navigate obstacles"
+            - "Identify an object using computer vision"
+            - "Manipulate or interact with the object"
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: Modules that must be completed before starting
+        successCriteria:
+          type: string
+          description: Criteria for successful completion (all 6 requirements fulfilled)
+        status:
+          type: string
+          enum: [not-started, in-progress, completed]
+          description: Current status of the project for the student

@@ -1,0 +1,95 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #8a2be2; /* Purple */
+  --ifm-color-primary-dark: #7a24c7; /* Darker Purple */
+  --ifm-color-primary-darker: #6b1faa; /* Even Darker Purple */
+  --ifm-color-primary-darkest: #5b1a8e; /* Darkest Purple */
+  --ifm-color-primary-light: #9a3df2; /* Lighter Purple */
+  --ifm-color-primary-lighter: #a95df7; /* Even Lighter Purple */
+  --ifm-color-primary-lightest: #b97cfc; /* Lightest Purple */
+  --ifm-code-font-size: 95%;
+
+  /* Neon accent color */
+  --ifm-color-accent: #39ff14; /* Neon Green */
+
+  /* Other theme colors */
+  --ifm-color-info: #8a2be2; /* Purple for info */
+  --ifm-color-success: #39ff14; /* Neon Green for success */
+  --ifm-color-warning: #ffd700; /* Gold for warnings */
+  --ifm-color-danger: #ff4500; /* Orange Red for danger */
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] {
+  --ifm-color-primary: #a95df7; /* Lighter Purple for dark mode */
+  --ifm-color-primary-dark: #9a3df2; /* Lighter Dark Purple */
+  --ifm-color-primary-darker: #8a2be2; /* Purple */
+  --ifm-color-primary-darkest: #7a24c7; /* Darker Purple */
+  --ifm-color-primary-light: #b97cfc; /* Lighter Purple */
+  --ifm-color-primary-lighter: #c89bfc; /* Even Lighter Purple */
+  --ifm-color-primary-lightest: #d8bafd; /* Lightest Purple */
+
+  /* Neon accent in dark mode */
+  --ifm-color-accent: #39ff14; /* Neon Green */
+}
+
+/* Custom neon effects */
+.neon-text {
+  color: var(--ifm-color-accent);
+  text-shadow: 0 0 5px var(--ifm-color-accent), 0 0 10px var(--ifm-color-accent);
+}
+
+.neon-border {
+  border: 1px solid var(--ifm-color-accent) !important;
+  box-shadow: 0 0 5px var(--ifm-color-accent);
+}
+
+/* Custom styling for code blocks */
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styling for admonitions */
+.admonition-purple {
+  border-left-color: var(--ifm-color-primary);
+}
+
+.admonition-purple .admonition-heading {
+  color: var(--ifm-color-primary);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 996px) {
+  .navbar__toggle {
+    display: flex;
+  }
+}
+
+/* Custom button styles */
+.button--neon {
+  background-color: var(--ifm-color-accent);
+  color: #000 !important;
+  border: 1px solid var(--ifm-color-accent);
+  box-shadow: 0 0 10px var(--ifm-color-accent);
+  transition: all 0.3s ease;
+}
+
+.button--neon:hover {
+  background-color: transparent;
+  color: var(--ifm-color-accent) !important;
+  box-shadow: 0 0 20px var(--ifm-color-accent);
+}

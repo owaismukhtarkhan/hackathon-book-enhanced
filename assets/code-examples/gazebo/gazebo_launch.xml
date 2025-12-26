@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Launch Gazebo with a custom world -->
+  <arg name="world" default="$(find-pkg-share my_robot_sim)/worlds/robotics_lab.sdf"/>
+  <arg name="gui" default="true"/>
+  <arg name="verbose" default="false"/>
+
+  <!-- Gazebo server -->
+  <node name="gazebo_server"
+        pkg="gazebo_ros"
+        exec="gzserver"
+        args="$(var world) $(var verbose ? '-v 4' : '')"
+        output="screen"/>
+
+  <!-- Gazebo client (GUI) -->
+  <node if="$(var gui)"
+        name="gazebo_client"
+        pkg="gazebo_ros"
+        exec="gzclient"
+        args="$(var verbose ? '-v 4' : '')"
+        output="screen"
+        launch-prefix="$(optenv LAUNCH_GZCLIENT_PREFIX)"/>
+</launch>
