@@ -25,7 +25,6 @@ The Physical AI & Humanoid Robotics Book is an educational platform designed to 
 - Capstone project integrating all learned concepts
 
 ## 5. Design Principles
-- Purple + Neon theme (purple #8a2be2, neon #39ff14)
 - Mobile-responsive design
 - WCAG 2.1 AA accessibility compliance
 - Performance optimized (under 3 seconds load time)

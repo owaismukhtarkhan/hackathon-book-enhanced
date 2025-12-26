@@ -23,7 +23,7 @@ function HomepageHeader() {
               </p>
               <div className={styles.buttons}>
                 <Link
-                  className="button button--primary button--lg button--neon"
+                  className="button button--primary button--lg button--modern"
                   to="/docs/">
                   Start Learning
                 </Link>
