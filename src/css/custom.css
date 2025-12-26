@@ -5,91 +5,383 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Enhanced color palette with more elegant shades */
 :root {
-  --ifm-color-primary: #8a2be2; /* Purple */
-  --ifm-color-primary-dark: #7a24c7; /* Darker Purple */
-  --ifm-color-primary-darker: #6b1faa; /* Even Darker Purple */
-  --ifm-color-primary-darkest: #5b1a8e; /* Darkest Purple */
-  --ifm-color-primary-light: #9a3df2; /* Lighter Purple */
-  --ifm-color-primary-lighter: #a95df7; /* Even Lighter Purple */
-  --ifm-color-primary-lightest: #b97cfc; /* Lightest Purple */
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #7b1fa2; /* Deep purple - Material UI inspired */
+  --ifm-color-primary-dark: #6a1b9a; /* Darker purple */
+  --ifm-color-primary-darker: #4a148c; /* Even darker purple */
+  --ifm-color-primary-darkest: #38006b; /* Darkest purple */
+  --ifm-color-primary-light: #9c27b0; /* Light purple */
+  --ifm-color-primary-lighter: #ba68c8; /* Lighter purple */
+  --ifm-color-primary-lightest: #e1bee7; /* Lightest purple */
 
-  /* Neon accent color */
-  --ifm-color-accent: #39ff14; /* Neon Green */
+  /* Elegant neon accent colors */
+  --ifm-color-accent: #00e676; /* Vibrant neon green - more elegant */
+  --ifm-color-accent-secondary: #29b6f6; /* Elegant blue accent */
+  --ifm-color-accent-tertiary: #ffb74d; /* Elegant orange accent */
 
-  /* Other theme colors */
-  --ifm-color-info: #8a2be2; /* Purple for info */
-  --ifm-color-success: #39ff14; /* Neon Green for success */
-  --ifm-color-warning: #ffd700; /* Gold for warnings */
-  --ifm-color-danger: #ff4500; /* Orange Red for danger */
+  /* Refined theme colors */
+  --ifm-color-info: #0288d1; /* Deep blue */
+  --ifm-color-success: #388e3c; /* Rich green */
+  --ifm-color-warning: #f57c00; /* Deep orange */
+  --ifm-color-danger: #d32f2f; /* Deep red */
+
+  /* Elegant background and text colors */
+  --ifm-color-emphasis-0: #ffffff; /* Pure white */
+  --ifm-color-emphasis-100: #fafafa; /* Very light gray */
+  --ifm-color-emphasis-200: #f5f5f5; /* Light gray */
+  --ifm-color-emphasis-300: #eeeeee; /* Lighter gray */
+  --ifm-color-emphasis-400: #e0e0e0; /* Medium light gray */
+  --ifm-color-emphasis-500: #bdbdbd; /* Medium gray */
+  --ifm-color-emphasis-600: #9e9e9e; /* Medium dark gray */
+  --ifm-color-emphasis-700: #757575; /* Dark gray */
+  --ifm-color-emphasis-800: #616161; /* Darker gray */
+  --ifm-color-emphasis-900: #424242; /* Very dark gray */
+  --ifm-color-emphasis-1000: #212121; /* Pure black */
+
+  /* Typography enhancements */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ifm-line-height-base: 1.6;
+  --ifm-code-font-size: 90%;
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 2rem;
+  --ifm-h3-font-size: 1.75rem;
+  --ifm-h4-font-size: 1.5rem;
+  --ifm-h5-font-size: 1.25rem;
+  --ifm-h6-font-size: 1rem;
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides - more elegant dark theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #a95df7; /* Lighter Purple for dark mode */
-  --ifm-color-primary-dark: #9a3df2; /* Lighter Dark Purple */
-  --ifm-color-primary-darker: #8a2be2; /* Purple */
-  --ifm-color-primary-darkest: #7a24c7; /* Darker Purple */
-  --ifm-color-primary-light: #b97cfc; /* Lighter Purple */
-  --ifm-color-primary-lighter: #c89bfc; /* Even Lighter Purple */
-  --ifm-color-primary-lightest: #d8bafd; /* Lightest Purple */
+  --ifm-color-primary: #ab47bc; /* Lighter purple for dark mode */
+  --ifm-color-primary-dark: #8e24aa; /* Purple */
+  --ifm-color-primary-darker: #7b1fa2; /* Darker purple */
+  --ifm-color-primary-darkest: #6a1b9a; /* Darkest purple */
+  --ifm-color-primary-light: #ce93d8; /* Lighter purple */
+  --ifm-color-primary-lighter: #e1bee7; /* Even lighter purple */
+  --ifm-color-primary-lightest: #f3e5f5; /* Lightest purple */
 
-  /* Neon accent in dark mode */
-  --ifm-color-accent: #39ff14; /* Neon Green */
+  /* Dark mode specific colors */
+  --ifm-background-color: #121212;
+  --ifm-background-surface-color: #1e1e1e;
+  --ifm-color-emphasis-0: #000000;
+  --ifm-color-emphasis-100: #121212;
+  --ifm-color-emphasis-200: #1e1e1e;
+  --ifm-color-emphasis-300: #2d2d2d;
+  --ifm-color-emphasis-400: #404040;
+  --ifm-color-emphasis-500: #5a5a5a;
+  --ifm-color-emphasis-600: #757575;
+  --ifm-color-emphasis-700: #9e9e9e;
+  --ifm-color-emphasis-800: #bdbdbd;
+  --ifm-color-emphasis-900: #e0e0e0;
+  --ifm-color-emphasis-1000: #ffffff;
 }
 
-/* Custom neon effects */
+/* Elegant typography enhancements */
+html {
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Elegant card and container styling */
+.container {
+  padding: 0 1rem;
+}
+
+/* Enhanced neon effects with subtle animations */
 .neon-text {
   color: var(--ifm-color-accent);
-  text-shadow: 0 0 5px var(--ifm-color-accent), 0 0 10px var(--ifm-color-accent);
+  text-shadow:
+    0 0 5px var(--ifm-color-accent),
+    0 0 10px var(--ifm-color-accent),
+    0 0 15px var(--ifm-color-accent);
+  transition: all 0.3s ease;
+}
+
+.neon-text:hover {
+  text-shadow:
+    0 0 10px var(--ifm-color-accent),
+    0 0 20px var(--ifm-color-accent),
+    0 0 30px var(--ifm-color-accent);
 }
 
 .neon-border {
   border: 1px solid var(--ifm-color-accent) !important;
-  box-shadow: 0 0 5px var(--ifm-color-accent);
+  box-shadow:
+    0 0 5px var(--ifm-color-accent),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
-/* Custom styling for code blocks */
+.neon-border:hover {
+  box-shadow:
+    0 0 15px var(--ifm-color-accent),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced code block styling */
+.code-block {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
 .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(123, 31, 162, 0.1);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid var(--ifm-color-primary);
 }
 
 [data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(171, 71, 188, 0.2);
 }
 
-/* Custom styling for admonitions */
-.admonition-purple {
-  border-left-color: var(--ifm-color-primary);
+/* Enhanced admonitions with elegant styling */
+.admonition {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left-width: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.admonition-purple .admonition-heading {
+.admonition--success {
+  border-left-color: var(--ifm-color-success);
+  background-color: rgba(var(--ifm-color-success-rgb), 0.05);
+}
+
+.admonition--info {
+  border-left-color: var(--ifm-color-info);
+  background-color: rgba(var(--ifm-color-info-rgb), 0.05);
+}
+
+.admonition--warning {
+  border-left-color: var(--ifm-color-warning);
+  background-color: rgba(var(--ifm-color-warning-rgb), 0.05);
+}
+
+.admonition--danger {
+  border-left-color: var(--ifm-color-danger);
+  background-color: rgba(var(--ifm-color-danger-rgb), 0.05);
+}
+
+/* Elegant button styling */
+.button {
+  border-radius: 6px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  text-transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+/* Enhanced navbar styling */
+.navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: var(--ifm-background-surface-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Elegant footer styling */
+.footer {
+  background-color: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Enhanced sidebar styling */
+.menu {
+  font-size: 0.9rem;
+}
+
+.menu__list-item {
+  margin: 0.25rem 0;
+}
+
+.menu__link {
+  border-radius: 6px;
+  margin: 0.125rem 0;
+  transition: all 0.2s ease;
+}
+
+.menu__link--active {
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
   color: var(--ifm-color-primary);
+  font-weight: 500;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 996px) {
-  .navbar__toggle {
-    display: flex;
-  }
+/* Elegant table styling */
+.table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Custom button styles */
+.table thead {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Enhanced search styling */
+.navbar__search-input {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  transition: all 0.2s ease;
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.2);
+}
+
+/* Custom elegant button styles */
 .button--neon {
   background-color: var(--ifm-color-accent);
   color: #000 !important;
   border: 1px solid var(--ifm-color-accent);
-  box-shadow: 0 0 10px var(--ifm-color-accent);
+  box-shadow:
+    0 0 10px var(--ifm-color-accent),
+    0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  font-weight: 600;
 }
 
 .button--neon:hover {
   background-color: transparent;
   color: var(--ifm-color-accent) !important;
-  box-shadow: 0 0 20px var(--ifm-color-accent);
+  box-shadow:
+    0 0 20px var(--ifm-color-accent),
+    0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Elegant hero section styling */
+.hero {
+  background: linear-gradient(135deg,
+    var(--ifm-color-primary) 0%,
+    var(--ifm-color-primary-darker) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%);
+  pointer-events: none;
+}
+
+/* Mobile responsiveness with elegant breakpoints */
+@media (max-width: 996px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__inner {
+    padding: 0 0.75rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    border-radius: 0;
+  }
+
+  .button--neon {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-emphasis-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-600);
+}
+
+/* Enhanced focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

@@ -12,14 +12,29 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/">
-            Get Started
-          </Link>
+        <div className="row">
+          <div className="col col--8 col--offset-2">
+            <div className={styles.heroContent}>
+              <h1 className={clsx('hero__title', styles.title)}>
+                {siteConfig.title}
+              </h1>
+              <p className={clsx('hero__subtitle', styles.subtitle)}>
+                {siteConfig.tagline}
+              </p>
+              <div className={styles.buttons}>
+                <Link
+                  className="button button--primary button--lg button--neon"
+                  to="/docs/">
+                  Start Learning
+                </Link>
+                <Link
+                  className="button button--secondary button--outline button--lg"
+                  to="/docs/modules/week-01-02-fundamentals/physical-ai-principles">
+                  Explore Curriculum
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -30,7 +45,7 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`Welcome to ${siteConfig.title}`}
       description="Educational resource for Physical AI & Humanoid Robotics">
       <HomepageHeader />
       <main>
