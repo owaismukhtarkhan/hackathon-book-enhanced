@@ -184,7 +184,7 @@ class GeminiIntegration {
 // Example usage configuration
 // This would typically be loaded from environment variables or configuration
 const geminiConfig: GeminiConfig = {
-  apiKey: process.env.GEMINI_API_KEY || '' // In a real implementation, this would come from secure storage
+  apiKey: process.env.GOOGLE_API_KEY || '' // In a real implementation, this would come from secure storage
 };
 
 // Singleton instance
