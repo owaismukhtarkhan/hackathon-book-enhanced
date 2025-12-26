@@ -47,7 +47,8 @@ class GeminiIntegration {
    */
   public async generateContent(request: GeminiRequest): Promise<GeminiResponse> {
     // Check if we're in a browser environment (not during server-side rendering)
-    if (typeof window === 'undefined') {
+    // Also check for other browser-specific objects that might indicate SSR
+    if (typeof window === 'undefined' || typeof document === 'undefined' || typeof navigator === 'undefined') {
       // During server-side rendering, return a placeholder response
       // This prevents build errors while still allowing the component to render
       return {
@@ -243,7 +244,7 @@ class GeminiIntegrationService {
    */
   async processVLARequest(request: VLARequest): Promise<VLEResponse> {
     // Check if we're in a browser environment (not during server-side rendering)
-    if (typeof window === 'undefined') {
+    if (typeof window === 'undefined' || typeof document === 'undefined' || typeof navigator === 'undefined') {
       // During server-side rendering, return a placeholder response
       // This prevents build errors while still allowing the component to render
       return {
