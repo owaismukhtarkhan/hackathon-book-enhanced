@@ -3,7 +3,15 @@
  * Validates the complete VLA pipeline for robotics applications
  */
 
-import { VLEResponse } from "./gemini-integration";
+// Define the VLEResponse interface locally to avoid build issues
+export interface VLEResponse {
+  action_sequence: string[];
+  confidence_score: number;
+  reasoning: string;
+  parameters?: { [key: string]: any };
+  scene_understanding?: string;
+  target_object?: string;
+}
 
 export interface VLAValidationResult {
   isValid: boolean;

@@ -181,14 +181,19 @@ class GeminiIntegration {
   }
 }
 
-// Example usage configuration
-// This would typically be loaded from environment variables or configuration
-const geminiConfig: GeminiConfig = {
-  apiKey: process.env.GOOGLE_API_KEY || '' // In a real implementation, this would come from secure storage
-};
+// Lazy initialization of the singleton instance
+let geminiIntegration: GeminiIntegration | null = null;
 
-// Singleton instance
-const geminiIntegration = new GeminiIntegration(geminiConfig);
+// Function to get or create the singleton instance
+function getGeminiIntegration(): GeminiIntegration {
+  if (!geminiIntegration) {
+    const config: GeminiConfig = {
+      apiKey: process.env.GOOGLE_API_KEY || '' // In a real implementation, this would come from secure storage
+    };
+    geminiIntegration = new GeminiIntegration(config);
+  }
+  return geminiIntegration;
+}
 
-export { GeminiIntegration, GeminiConfig, GeminiRequest, GeminiResponse };
-export default geminiIntegration;
+export { GeminiIntegration, GeminiConfig, GeminiRequest, GeminiResponse, getGeminiIntegration };
+export default getGeminiIntegration;
