@@ -5,30 +5,30 @@
  * work well for content-centric websites.
  */
 
-/* Modern, sophisticated color palette - eliminating purple + neon scheme */
+/* Elegant, sophisticated color palette - simple and premium look */
 :root {
-  --ifm-color-primary: #2a628f; /* Deep ocean blue */
-  --ifm-color-primary-dark: #1e4a6e; /* Darker ocean blue */
-  --ifm-color-primary-darker: #13324d; /* Even darker ocean blue */
-  --ifm-color-primary-darkest: #0d2338; /* Darkest ocean blue */
-  --ifm-color-primary-light: #3c79a8; /* Lighter ocean blue */
-  --ifm-color-primary-lighter: #5e97bf; /* Even lighter ocean blue */
-  --ifm-color-primary-lightest: #8fb8d6; /* Lightest ocean blue */
+  --ifm-color-primary: #2c3e50; /* Deep navy - sophisticated */
+  --ifm-color-primary-dark: #1a2530; /* Darker navy */
+  --ifm-color-primary-darker: #0d131a; /* Even darker navy */
+  --ifm-color-primary-darkest: #05080c; /* Darkest navy */
+  --ifm-color-primary-light: #34495e; /* Lighter navy */
+  --ifm-color-primary-lighter: #4d5e6e; /* Even lighter navy */
+  --ifm-color-primary-lightest: #667788; /* Lightest navy */
 
-  /* Sophisticated accent colors - modern tech palette */
-  --ifm-color-accent: #4cc9f0; /* Vibrant blue-cyan accent */
-  --ifm-color-accent-secondary: #4361ee; /* Modern indigo blue */
-  --ifm-color-accent-tertiary: #f72585; /* Vibrant magenta accent */
+  /* Premium accent colors - elegant palette */
+  --ifm-color-accent: #3498db; /* Classic blue accent */
+  --ifm-color-accent-secondary: #2ecc71; /* Sophisticated green */
+  --ifm-color-accent-tertiary: #9b59b6; /* Refined purple */
 
-  /* Modern theme colors */
-  --ifm-color-info: #4895ef; /* Bright blue */
-  --ifm-color-success: #3a9b6d; /* Sophisticated green */
-  --ifm-color-warning: #fca311; /* Warm amber */
-  --ifm-color-danger: #e63946; /* Modern red */
+  /* Elegant theme colors */
+  --ifm-color-info: #3498db; /* Classic blue */
+  --ifm-color-success: #27ae60; /* Rich green */
+  --ifm-color-warning: #f39c12; /* Golden yellow */
+  --ifm-color-danger: #e74c3c; /* Classy red */
 
-  /* Modern background and text colors */
+  /* Elegant background and text colors */
   --ifm-color-emphasis-0: #ffffff; /* Pure white */
-  --ifm-color-emphasis-100: #f8f9fa; /* Very light gray */
+  --ifm-color-emphasis-100: #f8f9fa; /* Clean white */
   --ifm-color-emphasis-200: #e9ecef; /* Light gray */
   --ifm-color-emphasis-300: #dee2e6; /* Lighter gray */
   --ifm-color-emphasis-400: #ced4da; /* Medium light gray */
@@ -51,30 +51,42 @@
   --ifm-h6-font-size: 1rem;
 }
 
-/* Dark mode overrides - sophisticated dark theme */
+/* Dark mode overrides - premium dark theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #5e97bf; /* Light ocean blue for dark mode */
-  --ifm-color-primary-dark: #4a7da8; /* Medium ocean blue */
-  --ifm-color-primary-darker: #3c6a8f; /* Darker ocean blue */
-  --ifm-color-primary-darkest: #2e5776; /* Darkest ocean blue */
-  --ifm-color-primary-light: #7fb8d6; /* Lighter ocean blue */
-  --ifm-color-primary-lighter: #a0cbe8; /* Even lighter ocean blue */
-  --ifm-color-primary-lightest: #c1ddf9; /* Lightest ocean blue */
+  /* Primary colors adjusted for premium dark mode */
+  --ifm-color-primary: #34495e; /* Lighter navy for dark mode */
+  --ifm-color-primary-dark: #2c3e50; /* Adjusted for dark mode */
+  --ifm-color-primary-darker: #233142; /* Adjusted for dark mode */
+  --ifm-color-primary-darkest: #1c2833; /* Adjusted for dark mode */
+  --ifm-color-primary-light: #4d5e6e; /* Lighter for dark mode */
+  --ifm-color-primary-lighter: #667788; /* Even lighter for dark mode */
+  --ifm-color-primary-lightest: #808f9e; /* Lightest for dark mode */
 
-  /* Dark mode specific colors */
-  --ifm-background-color: #0d1117;
-  --ifm-background-surface-color: #161b22;
-  --ifm-color-emphasis-0: #000000;
-  --ifm-color-emphasis-100: #0d1117;
-  --ifm-color-emphasis-200: #161b22;
-  --ifm-color-emphasis-300: #21262d;
-  --ifm-color-emphasis-400: #30363d;
-  --ifm-color-emphasis-500: #484f58;
-  --ifm-color-emphasis-600: #6e7681;
-  --ifm-color-emphasis-700: #9e9e9e;
-  --ifm-color-emphasis-800: #b1bac4;
-  --ifm-color-emphasis-900: #c9d1d9;
-  --ifm-color-emphasis-1000: #ffffff;
+  /* Premium dark mode specific background colors */
+  --ifm-background-color: #1a1a1f; /* Premium dark */
+  --ifm-background-surface-color: #1e1e24; /* Refined surface */
+
+  /* Premium dark mode emphasis colors */
+  --ifm-color-emphasis-0: #000000; /* Used sparingly */
+  --ifm-color-emphasis-100: #1a1a1f; /* Premium darkest */
+  --ifm-color-emphasis-200: #1e1e24; /* Premium very dark */
+  --ifm-color-emphasis-300: #25252d; /* Premium dark */
+  --ifm-color-emphasis-400: #32323d; /* Premium medium dark */
+  --ifm-color-emphasis-500: #4a4a55; /* Premium medium */
+  --ifm-color-emphasis-600: #6e6e78; /* Premium medium light */
+  --ifm-color-emphasis-700: #9e9ea7; /* Premium light medium */
+  --ifm-color-emphasis-800: #b8b8c2; /* Premium light */
+  --ifm-color-emphasis-900: #d0d0d9; /* Premium very light */
+  --ifm-color-emphasis-1000: #ffffff; /* Pure white for text */
+
+  /* Accent colors in dark mode - refined */
+  --ifm-color-accent: #3498db; /* Classic blue - stays consistent */
+  --ifm-color-accent-secondary: #2ecc71; /* Sophisticated green - stays consistent */
+  --ifm-color-accent-tertiary: #9b59b6; /* Refined purple - stays consistent */
+  --ifm-color-info: #3498db; /* Classic blue - adjusted for dark */
+  --ifm-color-success: #27ae60; /* Rich green - adjusted for dark */
+  --ifm-color-warning: #f39c12; /* Golden yellow - adjusted for dark */
+  --ifm-color-danger: #e74c3c; /* Classy red - adjusted for dark */
 }
 
 /* Modern typography enhancements */
@@ -98,38 +110,37 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-/* Updated glow effects with new color scheme */
-.glow-text {
+/* Elegant subtle glow effects */
+.subtle-glow-text {
   color: var(--ifm-color-accent);
   text-shadow:
-    0 0 5px var(--ifm-color-accent),
-    0 0 10px var(--ifm-color-accent);
+    0 0 2px var(--ifm-color-accent),
+    0 0 4px var(--ifm-color-accent);
   transition: all 0.3s ease;
 }
 
-.glow-text:hover {
+.subtle-glow-text:hover {
   text-shadow:
-    0 0 10px var(--ifm-color-accent),
-    0 0 20px var(--ifm-color-accent);
+    0 0 6px var(--ifm-color-accent),
+    0 0 12px var(--ifm-color-accent);
 }
 
-.glow-border {
-  border: 2px solid var(--ifm-color-accent) !important;
+.elegant-border {
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
   box-shadow:
-    0 0 10px rgba(var(--ifm-color-accent-rgb), 0.3),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   transition: all 0.4s ease;
-  border-radius: 12px;
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
 }
 
-.glow-border:hover {
+.elegant-border:hover {
   box-shadow:
-    0 0 20px rgba(var(--ifm-color-accent-rgb), 0.5),
-    0 0 40px rgba(var(--ifm-color-accent-rgb), 0.3),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
+    0 4px 16px rgba(52, 152, 219, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 /* Enhanced code block styling with modern design */
@@ -139,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   margin: 1.5rem 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: var(--ifm-color-emphasis-100);
 }
 
 .code-block::before {
@@ -161,8 +173,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
+[data-theme='dark'] .code-block {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
 [data-theme='dark'] .docusaurus-highlight-code-line {
   background: linear-gradient(90deg, rgba(94, 151, 191, 0.15) 0%, rgba(76, 201, 240, 0.15) 100%);
+  color: var(--ifm-color-emphasis-1000);
 }
 
 /* Modern animated admonitions */
@@ -274,6 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme='dark'] .navbar {
   background: rgba(22, 27, 34, 0.85) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .navbar__inner {
@@ -300,6 +318,20 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 10px var(--ifm-color-accent);
 }
 
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  color: var(--ifm-color-emphasis-900);
+}
+
+[data-theme='dark'] .footer a {
+  color: var(--ifm-color-accent);
+}
+
+[data-theme='dark'] .footer a:hover {
+  color: var(--ifm-color-emphasis-1000);
+  text-shadow: 0 0 10px var(--ifm-color-accent);
+}
+
 /* Modern sidebar with interactive elements */
 .menu {
   font-size: 0.95rem;
@@ -322,13 +354,69 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0.15rem 0;
   transition: all 0.3s ease;
   font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+}
+
+[data-theme='light'] .menu__link {
+  color: var(--ifm-color-emphasis-800);
+  background-color: rgba(var(--ifm-color-emphasis-100-rgb), 0.5);
+}
+
+[data-theme='dark'] .menu__link {
+  color: var(--ifm-color-emphasis-300);
+  background-color: rgba(var(--ifm-color-emphasis-200-rgb), 0.1);
+}
+
+.menu__link:hover {
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
+  color: var(--ifm-color-primary) !important;
+  transform: translateX(5px);
+}
+
+[data-theme='light'] .menu__link:hover {
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.15);
+  color: var(--ifm-color-primary) !important;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.2);
+  color: var(--ifm-color-primary) !important;
 }
 
 .menu__link--active {
-  background: linear-gradient(45deg, var(--ifm-color-primary), var(--ifm-color-accent));
+  background: linear-gradient(45deg, var(--ifm-color-primary-dark), var(--ifm-color-primary-darker));
   color: white !important;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(42, 98, 143, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 238, 255, 0.3);
+  transform: translateX(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu__link--active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg,
+    rgba(0, 238, 255, 0.2),
+    rgba(255, 0, 255, 0.2));
+  z-index: 1;
+}
+
+.menu__link--active > * {
+  position: relative;
+  z-index: 2;
+}
+
+.menu__link--active:hover {
+  background: linear-gradient(45deg, var(--ifm-color-primary-darker), var(--ifm-color-primary-darkest));
+  color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 238, 255, 0.5);
 }
 
 /* Modern animated table styling */
@@ -369,11 +457,21 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid var(--ifm-color-emphasis-300);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: rgba(255, 255, 255, 0.9);
+  color: var(--ifm-color-emphasis-1000);
 }
 
 [data-theme='dark'] .navbar__search-input {
   background: rgba(33, 37, 41, 0.9);
   border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-1000);
+}
+
+.navbar__search-input::placeholder {
+  color: var(--ifm-color-emphasis-600);
+}
+
+[data-theme='dark'] .navbar__search-input::placeholder {
+  color: var(--ifm-color-emphasis-700);
 }
 
 .navbar__search-input:focus {
@@ -382,38 +480,44 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.02);
 }
 
-/* Modern animated button styles */
+/* Elegant, premium button styles */
 .button--modern {
   background: linear-gradient(45deg, var(--ifm-color-accent), var(--ifm-color-accent-secondary));
   color: white !important;
   border: none;
   box-shadow:
-    0 0 15px rgba(var(--ifm-color-accent-rgb), 0.4),
-    0 8px 25px rgba(0, 0, 0, 0.2);
+    0 4px 20px rgba(0, 0, 0, 0.15),
+    0 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  font-weight: 700;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .button--modern:hover {
   background: linear-gradient(45deg, var(--ifm-color-accent-secondary), var(--ifm-color-accent));
   color: white !important;
   box-shadow:
-    0 0 30px rgba(var(--ifm-color-accent-rgb), 0.8),
-    0 12px 35px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px) scale(1.05);
+    0 6px 25px rgba(0, 0, 0, 0.2),
+    0 12px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.03);
 }
 
-/* Modern hero section with dynamic effects */
+/* Elegant, premium hero section with refined effects */
 .hero {
   background: linear-gradient(135deg,
     var(--ifm-color-primary) 0%,
-    var(--ifm-color-primary-darker) 50%,
-    var(--ifm-color-accent-secondary) 100%);
+    var(--ifm-color-primary-darker) 100%);
   position: relative;
   overflow: hidden;
-  border-radius: 0 0 30px 30px;
+  border-radius: 0 0 20px 20px;
   margin-bottom: 3rem;
   padding: 4rem 0;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    inset 0 0 100px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero::before {
@@ -424,8 +528,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 0%, transparent 40%);
   pointer-events: none;
 }
 

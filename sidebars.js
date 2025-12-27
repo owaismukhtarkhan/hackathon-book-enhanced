@@ -11,7 +11,7 @@ const sidebars = {
         'modules/week-01-02-fundamentals/physical-ai-principles',
         'modules/week-01-02-fundamentals/embodied-intelligence',
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
@@ -21,7 +21,7 @@ const sidebars = {
         'modules/week-03-05-ros2/nodes-topics-services',
         'modules/week-03-05-ros2/python-ros-packages',
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
@@ -31,7 +31,7 @@ const sidebars = {
         'modules/week-06-07-simulation/unity-visualization',
         'modules/week-06-07-simulation/sensor-simulation',
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
@@ -41,7 +41,7 @@ const sidebars = {
         'modules/week-13-conversational/speech-recognition',
         'modules/week-13-conversational/multi-modal-interaction',
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
@@ -51,7 +51,7 @@ const sidebars = {
         'modules/week-06-07-simulation/simulation-assessment',
         'modules/week-13-conversational/vla-assessment',
       ],
-      collapsed: false,
+      collapsed: true,
     },
   ],
 };
