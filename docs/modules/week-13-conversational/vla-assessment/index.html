@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-modules/week-13-conversational/vla-assessment" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.0">
+<title data-rh="true">Vision-Language-Action Pipeline Assessment | Physical AI &amp; Humanoid Robotics</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/docs/modules/week-13-conversational/vla-assessment"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Vision-Language-Action Pipeline Assessment | Physical AI &amp; Humanoid Robotics"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/hackathon-book-enhanced/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/docs/modules/week-13-conversational/vla-assessment"><link data-rh="true" rel="alternate" href="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/docs/modules/week-13-conversational/vla-assessment" hreflang="en"><link data-rh="true" rel="alternate" href="https://owaismukhtarkhan.github.io/hackathon-book-enhanced/docs/modules/week-13-conversational/vla-assessment" hreflang="x-default"><link rel="stylesheet" href="/hackathon-book-enhanced/assets/css/styles.6c2073ac.css">
+<script src="/hackathon-book-enhanced/assets/js/runtime~main.94c12ad1.js" defer="defer"></script>
+<script src="/hackathon-book-enhanced/assets/js/main.6e21853d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/hackathon-book-enhanced/"><div class="navbar__logo"><img src="/hackathon-book-enhanced/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/hackathon-book-enhanced/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Physical AI &amp; Humanoid Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/hackathon-book-enhanced/docs/">Book</a><a class="navbar__item navbar__link" href="/hackathon-book-enhanced/docs/modules/week-01-02-fundamentals/physical-ai-principles">Start Learning</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/owaismukhtarkhan/hackathon-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/hackathon-book-enhanced/docs/">Physical AI &amp; Humanoid Robotics</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-book-enhanced/docs/modules/week-01-02-fundamentals/physical-ai-principles">Physical AI Foundations (Weeks 1-2)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-book-enhanced/docs/modules/week-03-05-ros2/ros2-architecture">ROS 2 Fundamentals (Weeks 3-5)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-book-enhanced/docs/modules/week-06-07-simulation/gazebo-setup">Robot Simulation (Weeks 6-7)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/hackathon-book-enhanced/docs/modules/week-13-conversational/language-models-robotics">Conversational Robotics (Week 13)</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/hackathon-book-enhanced/docs/modules/week-03-05-ros2/ros2-assessment">Assessments</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-book-enhanced/docs/modules/week-03-05-ros2/ros2-assessment">ROS 2 Assessment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/hackathon-book-enhanced/docs/modules/week-06-07-simulation/simulation-assessment">Simulation Module Assessment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/hackathon-book-enhanced/docs/modules/week-13-conversational/vla-assessment">Vision-Language-Action Pipeline Assessment</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/hackathon-book-enhanced/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Assessments</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Vision-Language-Action Pipeline Assessment</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Vision-Language-Action Pipeline Assessment</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h2>
+<p>This assessment evaluates your understanding and implementation of Vision-Language-Action (VLA) pipelines that integrate visual perception, natural language processing using Google Gemini, and robotic action execution. You must achieve an 80% success threshold to pass this module.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="assessment-structure">Assessment Structure<a href="#assessment-structure" class="hash-link" aria-label="Direct link to Assessment Structure" title="Direct link to Assessment Structure">​</a></h2>
+<p>The assessment consists of both theoretical questions and practical implementation tasks that must be completed using the VLA framework.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="learning-objectives-covered">Learning Objectives Covered<a href="#learning-objectives-covered" class="hash-link" aria-label="Direct link to Learning Objectives Covered" title="Direct link to Learning Objectives Covered">​</a></h2>
+<ul>
+<li>Vision-Language-Action pipeline architecture and implementation</li>
+<li>Google Gemini integration for robotics applications</li>
+<li>Multi-modal interaction systems</li>
+<li>Voice command processing and execution</li>
+<li>Conversational robotics with visual context awareness</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="assessment-tasks">Assessment Tasks<a href="#assessment-tasks" class="hash-link" aria-label="Direct link to Assessment Tasks" title="Direct link to Assessment Tasks">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="task-1-vla-pipeline-implementation-30-points">Task 1: VLA Pipeline Implementation (30 points)<a href="#task-1-vla-pipeline-implementation-30-points" class="hash-link" aria-label="Direct link to Task 1: VLA Pipeline Implementation (30 points)" title="Direct link to Task 1: VLA Pipeline Implementation (30 points)">​</a></h3>
+<p>Implement a complete VLA pipeline that:</p>
+<ul>
+<li>Integrates visual input from robot cameras</li>
+<li>Processes natural language commands using Google Gemini</li>
+<li>Generates appropriate robot action sequences</li>
+<li>Handles multi-modal fusion effectively</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Successfully process image and text inputs together</li>
+<li>Generate action sequences with at least 80% accuracy</li>
+<li>Implement proper error handling and fallback mechanisms</li>
+<li>Demonstrate confidence scoring for actions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="task-2-voice-command-processing-25-points">Task 2: Voice Command Processing (25 points)<a href="#task-2-voice-command-processing-25-points" class="hash-link" aria-label="Direct link to Task 2: Voice Command Processing (25 points)" title="Direct link to Task 2: Voice Command Processing (25 points)">​</a></h3>
+<p>Create a voice command processing system that:</p>
+<ul>
+<li>Recognizes spoken commands using speech recognition</li>
+<li>Interprets commands with Google Gemini</li>
+<li>Executes appropriate robot actions</li>
+<li>Provides feedback to the user</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Achieve 80% accuracy in speech recognition</li>
+<li>Properly integrate with the VLA pipeline</li>
+<li>Handle ambiguous commands appropriately</li>
+<li>Provide clear feedback to users</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="task-3-multi-modal-interaction-25-points">Task 3: Multi-Modal Interaction (25 points)<a href="#task-3-multi-modal-interaction-25-points" class="hash-link" aria-label="Direct link to Task 3: Multi-Modal Interaction (25 points)" title="Direct link to Task 3: Multi-Modal Interaction (25 points)">​</a></h3>
+<p>Develop a multi-modal interaction system that:</p>
+<ul>
+<li>Combines visual perception with language understanding</li>
+<li>Maintains context across multiple interactions</li>
+<li>Handles complex commands requiring both vision and language</li>
+<li>Demonstrates conversational capabilities</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Successfully process commands that require visual context</li>
+<li>Maintain conversation state appropriately</li>
+<li>Demonstrate understanding of spatial relationships</li>
+<li>Handle follow-up questions based on visual context</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="task-4-google-gemini-integration-20-points">Task 4: Google Gemini Integration (20 points)<a href="#task-4-google-gemini-integration-20-points" class="hash-link" aria-label="Direct link to Task 4: Google Gemini Integration (20 points)" title="Direct link to Task 4: Google Gemini Integration (20 points)">​</a></h3>
+<p>Implement Google Gemini integration that:</p>
+<ul>
+<li>Properly configures and validates the API connection</li>
+<li>Uses appropriate models for different tasks (text vs vision)</li>
+<li>Processes responses and converts to robot actions</li>
+<li>Implements safety and validation measures</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Successfully connect to Google Gemini API</li>
+<li>Use appropriate models for different modalities</li>
+<li>Handle API errors gracefully</li>
+<li>Validate responses before execution</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementation-requirements">Implementation Requirements<a href="#implementation-requirements" class="hash-link" aria-label="Direct link to Implementation Requirements" title="Direct link to Implementation Requirements">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="technical-requirements">Technical Requirements<a href="#technical-requirements" class="hash-link" aria-label="Direct link to Technical Requirements" title="Direct link to Technical Requirements">​</a></h3>
+<ul>
+<li>Use Python 3.8+ with ROS 2 Humble Hawksbill</li>
+<li>Implement proper error handling and logging</li>
+<li>Include comprehensive documentation and comments</li>
+<li>Follow ROS 2 best practices for node design</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance-requirements">Performance Requirements<a href="#performance-requirements" class="hash-link" aria-label="Direct link to Performance Requirements" title="Direct link to Performance Requirements">​</a></h3>
+<ul>
+<li>System must respond to commands within 5 seconds</li>
+<li>Achieve 80% success rate in command interpretation</li>
+<li>Maintain 90% uptime during testing period</li>
+<li>Handle concurrent requests appropriately</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="safety-requirements">Safety Requirements<a href="#safety-requirements" class="hash-link" aria-label="Direct link to Safety Requirements" title="Direct link to Safety Requirements">​</a></h3>
+<ul>
+<li>Implement safety checks before executing actions</li>
+<li>Validate all commands before execution</li>
+<li>Include emergency stop functionality</li>
+<li>Log all actions for audit purposes</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="submission-requirements">Submission Requirements<a href="#submission-requirements" class="hash-link" aria-label="Direct link to Submission Requirements" title="Direct link to Submission Requirements">​</a></h2>
+<ol>
+<li><strong>VLA Pipeline Code</strong>: Complete implementation of VLA system (<code>vla_pipeline.py</code>)</li>
+<li><strong>Voice Processing Code</strong>: Voice command processing implementation (<code>voice_command_processing.py</code>)</li>
+<li><strong>Gemini Integration</strong>: Google Gemini API integration (<code>gemini_integration.py</code>)</li>
+<li><strong>Configuration Files</strong>: All necessary config files and launch files</li>
+<li><strong>Documentation</strong>: Implementation guide and API documentation</li>
+<li><strong>Test Results</strong>: Output from test runs demonstrating functionality</li>
+<li><strong>Video Demonstration</strong>: Short video showing system in operation (optional but recommended)</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="grading-criteria">Grading Criteria<a href="#grading-criteria" class="hash-link" aria-label="Direct link to Grading Criteria" title="Direct link to Grading Criteria">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pass-requirements-80-threshold">Pass Requirements (80% threshold)<a href="#pass-requirements-80-threshold" class="hash-link" aria-label="Direct link to Pass Requirements (80% threshold)" title="Direct link to Pass Requirements (80% threshold)">​</a></h3>
+<ul>
+<li>All components function correctly together</li>
+<li>VLA pipeline achieves 80% success rate</li>
+<li>Proper integration with Google Gemini as required</li>
+<li>Safe operation with appropriate error handling</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="scoring-breakdown">Scoring Breakdown<a href="#scoring-breakdown" class="hash-link" aria-label="Direct link to Scoring Breakdown" title="Direct link to Scoring Breakdown">​</a></h3>
+<ul>
+<li>Task 1: 30 points</li>
+<li>Task 2: 25 points</li>
+<li>Task 3: 25 points</li>
+<li>Task 4: 20 points</li>
+<li><strong>Total</strong>: 100 points</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="deductions">Deductions<a href="#deductions" class="hash-link" aria-label="Direct link to Deductions" title="Direct link to Deductions">​</a></h3>
+<ul>
+<li>Safety violations: -20 points each</li>
+<li>System crashes during testing: -10 points each</li>
+<li>Missing Google Gemini integration: -15 points</li>
+<li>Inadequate error handling: -5 points each issue</li>
+<li>Poor documentation: -5 points</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-protocol">Testing Protocol<a href="#testing-protocol" class="hash-link" aria-label="Direct link to Testing Protocol" title="Direct link to Testing Protocol">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="automated-tests">Automated Tests<a href="#automated-tests" class="hash-link" aria-label="Direct link to Automated Tests" title="Direct link to Automated Tests">​</a></h3>
+<ol>
+<li>Command interpretation accuracy test</li>
+<li>Multi-modal fusion validation</li>
+<li>System stability under load</li>
+<li>Safety mechanism verification</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="manual-evaluation">Manual Evaluation<a href="#manual-evaluation" class="hash-link" aria-label="Direct link to Manual Evaluation" title="Direct link to Manual Evaluation">​</a></h3>
+<ol>
+<li>Code quality and documentation review</li>
+<li>Architecture and design assessment</li>
+<li>Innovation and creative implementation</li>
+<li>Adherence to constitutional requirements</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="resources">Resources<a href="#resources" class="hash-link" aria-label="Direct link to Resources" title="Direct link to Resources">​</a></h2>
+<ul>
+<li>Google Gemini API documentation</li>
+<li>ROS 2 Python tutorials</li>
+<li>Vision processing libraries documentation</li>
+<li>Provided code examples and templates</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="time-limit">Time Limit<a href="#time-limit" class="hash-link" aria-label="Direct link to Time Limit" title="Direct link to Time Limit">​</a></h2>
+<p>You have 6 hours to complete this assessment. Plan your time accordingly to ensure all components are completed and tested.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="submission-process">Submission Process<a href="#submission-process" class="hash-link" aria-label="Direct link to Submission Process" title="Direct link to Submission Process">​</a></h2>
+<ol>
+<li>Package all required files in a zip archive named <code>vla_assessment_&amp;lt;student_name&amp;gt;.zip</code></li>
+<li>Run comprehensive tests and capture results</li>
+<li>Verify Google Gemini integration is properly configured</li>
+<li>Submit through the course management system</li>
+<li>Include test results and implementation documentation</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="success-metrics">Success Metrics<a href="#success-metrics" class="hash-link" aria-label="Direct link to Success Metrics" title="Direct link to Success Metrics">​</a></h2>
+<p>To pass this assessment, you must achieve:</p>
+<ul>
+<li>Overall score of 80/100 (80%)</li>
+<li>Individual task scores of at least 70% each</li>
+<li>VLA pipeline success rate of 80% or higher</li>
+<li>Proper Google Gemini integration as required by constitution</li>
+<li>Safe and reliable system operation</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="evaluation-rubric">Evaluation Rubric<a href="#evaluation-rubric" class="hash-link" aria-label="Direct link to Evaluation Rubric" title="Direct link to Evaluation Rubric">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="excellent-90-100">Excellent (90-100%)<a href="#excellent-90-100" class="hash-link" aria-label="Direct link to Excellent (90-100%)" title="Direct link to Excellent (90-100%)">​</a></h3>
+<ul>
+<li>All requirements exceeded</li>
+<li>Innovative approaches to challenges</li>
+<li>Robust error handling and safety measures</li>
+<li>Excellent documentation and code quality</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="proficient-80-89">Proficient (80-89%)<a href="#proficient-80-89" class="hash-link" aria-label="Direct link to Proficient (80-89%)" title="Direct link to Proficient (80-89%)">​</a></h3>
+<ul>
+<li>All requirements met</li>
+<li>Good implementation with minor issues</li>
+<li>Adequate error handling</li>
+<li>Satisfactory documentation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="developing-70-79">Developing (70-79%)<a href="#developing-70-79" class="hash-link" aria-label="Direct link to Developing (70-79%)" title="Direct link to Developing (70-79%)">​</a></h3>
+<ul>
+<li>Most requirements met</li>
+<li>Some implementation issues</li>
+<li>Basic error handling</li>
+<li>Minimal documentation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="beginning-70">Beginning (&lt;70%)<a href="#beginning-70" class="hash-link" aria-label="Direct link to Beginning (&lt;70%)" title="Direct link to Beginning (&lt;70%)">​</a></h3>
+<ul>
+<li>Significant requirements not met</li>
+<li>Major implementation problems</li>
+<li>Inadequate error handling</li>
+<li>Poor documentation</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/owaismukhtarkhan/hackathon-book/tree/main/docs/modules/week-13-conversational/vla-assessment.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/hackathon-book-enhanced/docs/modules/week-06-07-simulation/simulation-assessment"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Simulation Module Assessment</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#assessment-structure" class="table-of-contents__link toc-highlight">Assessment Structure</a></li><li><a href="#learning-objectives-covered" class="table-of-contents__link toc-highlight">Learning Objectives Covered</a></li><li><a href="#assessment-tasks" class="table-of-contents__link toc-highlight">Assessment Tasks</a><ul><li><a href="#task-1-vla-pipeline-implementation-30-points" class="table-of-contents__link toc-highlight">Task 1: VLA Pipeline Implementation (30 points)</a></li><li><a href="#task-2-voice-command-processing-25-points" class="table-of-contents__link toc-highlight">Task 2: Voice Command Processing (25 points)</a></li><li><a href="#task-3-multi-modal-interaction-25-points" class="table-of-contents__link toc-highlight">Task 3: Multi-Modal Interaction (25 points)</a></li><li><a href="#task-4-google-gemini-integration-20-points" class="table-of-contents__link toc-highlight">Task 4: Google Gemini Integration (20 points)</a></li></ul></li><li><a href="#implementation-requirements" class="table-of-contents__link toc-highlight">Implementation Requirements</a><ul><li><a href="#technical-requirements" class="table-of-contents__link toc-highlight">Technical Requirements</a></li><li><a href="#performance-requirements" class="table-of-contents__link toc-highlight">Performance Requirements</a></li><li><a href="#safety-requirements" class="table-of-contents__link toc-highlight">Safety Requirements</a></li></ul></li><li><a href="#submission-requirements" class="table-of-contents__link toc-highlight">Submission Requirements</a></li><li><a href="#grading-criteria" class="table-of-contents__link toc-highlight">Grading Criteria</a><ul><li><a href="#pass-requirements-80-threshold" class="table-of-contents__link toc-highlight">Pass Requirements (80% threshold)</a></li><li><a href="#scoring-breakdown" class="table-of-contents__link toc-highlight">Scoring Breakdown</a></li><li><a href="#deductions" class="table-of-contents__link toc-highlight">Deductions</a></li></ul></li><li><a href="#testing-protocol" class="table-of-contents__link toc-highlight">Testing Protocol</a><ul><li><a href="#automated-tests" class="table-of-contents__link toc-highlight">Automated Tests</a></li><li><a href="#manual-evaluation" class="table-of-contents__link toc-highlight">Manual Evaluation</a></li></ul></li><li><a href="#resources" class="table-of-contents__link toc-highlight">Resources</a></li><li><a href="#time-limit" class="table-of-contents__link toc-highlight">Time Limit</a></li><li><a href="#submission-process" class="table-of-contents__link toc-highlight">Submission Process</a></li><li><a href="#success-metrics" class="table-of-contents__link toc-highlight">Success Metrics</a></li><li><a href="#evaluation-rubric" class="table-of-contents__link toc-highlight">Evaluation Rubric</a><ul><li><a href="#excellent-90-100" class="table-of-contents__link toc-highlight">Excellent (90-100%)</a></li><li><a href="#proficient-80-89" class="table-of-contents__link toc-highlight">Proficient (80-89%)</a></li><li><a href="#developing-70-79" class="table-of-contents__link toc-highlight">Developing (70-79%)</a></li><li><a href="#beginning-70" class="table-of-contents__link toc-highlight">Beginning (&lt;70%)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Learning Path</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/hackathon-book-enhanced/docs/modules/week-01-02-fundamentals/physical-ai-principles">Physical AI Foundations</a></li><li class="footer__item"><a class="footer__link-item" href="/hackathon-book-enhanced/docs/modules/week-03-05-ros2/ros2-architecture">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/hackathon-book-enhanced/docs/modules/week-06-07-simulation/gazebo-setup">Robot Simulation</a></li></ul></div><div class="col footer__col"><div class="footer__title">Resources</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://docusaurus.io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Docusaurus<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://docs.ros.org/en/humble/" target="_blank" rel="noopener noreferrer" class="footer__link-item">ROS 2 Documentation<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://developer.nvidia.com/isaac" target="_blank" rel="noopener noreferrer" class="footer__link-item">NVIDIA Isaac<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/owaismukhtarkhan/hackathon-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
